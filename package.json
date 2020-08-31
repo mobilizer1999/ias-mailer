@@ -1,0 +1,81 @@
+{
+  "name": "ias-mailer",
+  "version": "0.0.1",
+  "private": true,
+  "description": "ias-mailer",
+  "license": "UNLICENSED",
+  "main": "index.js",
+  "eslintConfig": ".eslintrc.js",
+  "scripts": {
+    "dev:win": "set DEBUG=dev&& node index.js",
+    "lint": "node_modules/.bin/eslint -c .eslintrc.js --ext .js ./",
+    "lintfix": "node_modules/.bin/eslint -c .eslintrc.js --fix --ext .js ./",
+    "snyk-test": "node_modules/.bin/snyk auth 5d196932-1d96-408d-8836-92558facddbb && node_modules/.bin/snyk test",
+    "start": "npm run lint && node index.js",
+    "start:win": "set NODE_ENV=local&& node index.js",
+    "test": "npm run lint && npm run snyk-test"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm test",
+      "pre-push": "npm test"
+    }
+  },
+  "dependencies": {
+    "@bugsnag/js": "^6.5.0",
+    "@bugsnag/plugin-express": "^6.5.1",
+    "ajv": "^6.11.0",
+    "ajv-keywords": "^3.4.1",
+    "async": "^3.1.1",
+    "atob": "^2.1.2",
+    "boom": "^7.3.0",
+    "connect-session-sequelize": "^6.0.0",
+    "cookie-parser": "^1.4.4",
+    "debug": "^4.1.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "http-errors": "^1.7.3",
+    "ias-utils": "^0.0.50",
+    "jstransformer": "^1.0.0",
+    "lodash": "^4.17.15",
+    "morgan": "^1.9.1",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.1.0",
+    "nodemailer": "^6.4.2",
+    "pug": "^2.0.4",
+    "randomatic": "^3.1.1",
+    "regex-email": "^1.0.2",
+    "sequelize": "^5.21.3",
+    "twilio": "^3.39.3",
+    "uglify-js": "^3.7.6"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.20.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.18.0",
+    "eslint-plugin-security": "^1.4.0",
+    "husky": "4.2.1",
+    "mocha": "^7.0.1",
+    "sinon": "^8.1.1",
+    "sinon-express-mock": "^2.2.1",
+    "snyk": "^1.288.0"
+  },
+  "engines": {
+    "node": ">= 10.17.0",
+    "npm": ">= 6.12.1"
+  },
+  "os": [
+    "darwin",
+    "linux",
+    "win32"
+  ],
+  "cpu": [
+    "x64"
+  ]
+}
